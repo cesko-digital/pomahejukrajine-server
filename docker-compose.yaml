@@ -1,0 +1,18 @@
+services:
+  server:
+    image: 'node:16-alpine'
+    command: ['npm', 'run', 'dev']
+
+    user: '1000:1000'
+
+    working_dir: '/src'
+    volumes: ['./:/src']
+
+    environment:
+      NODE_ENV: 'development'
+      PORT: '4000'
+
+      CONTEMBER_CONTENT_URL: 'https://api.ukrajina.contember.cz/content/ukrajina/live'
+      CONTEMBER_ADMIN_TOKEN: '0000000000000000000000000000000000000000'
+
+    ports: ['4000:4000']
