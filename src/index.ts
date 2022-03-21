@@ -1,6 +1,9 @@
+import dotenv from "dotenv"
 import express from 'express'
 import cors from 'cors'
 import fetch from 'node-fetch'
+
+dotenv.config()
 
 async function fetchDataFromContember() {
 	const response = await fetch(
@@ -388,4 +391,6 @@ app.post('/fetch', async (req, res) => {
 	})
 })
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT, () => {
+	console.log("listening on", process.env.PORT)
+})
