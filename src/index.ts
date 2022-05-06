@@ -18,7 +18,7 @@ async function fetchDataFromContember() {
 						name
 						infoText
 						needsVerification
-				
+
 						questions {
 							id
 							question
@@ -32,16 +32,16 @@ async function fetchDataFromContember() {
 							}
 						}
 					}
-				
+
 					languages: listLanguage(orderBy: [{ order: asc }]) {
 						id
 						name
 					}
-				
+
 					districts: listDistrict(orderBy: [{name: asc}]) {
 						id
 						name
-				
+
 						region {
 							id
 							name
@@ -52,6 +52,7 @@ async function fetchDataFromContember() {
 						filter: {
 							exhausted: { eq: false }
 							status: { type: { isNull: true } }
+							isDeleted: { eq: false }
 							volunteer: {
 								verified: { eq: true }
 								banned: { eq: false }
@@ -60,6 +61,7 @@ async function fetchDataFromContember() {
 						orderBy: { volunteer: { createdAt: desc } }
 					) {
 						id
+						code
 						type {
 							id
 						}
