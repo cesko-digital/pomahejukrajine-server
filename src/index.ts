@@ -103,7 +103,7 @@ async function fetchDataFromContember() {
 			code: offer.code,
 			type: offer.type,
 			parameters: offer.parameters,
-			allowReaction: !offerType.needsVerification && offer.assignees.length === 0,
+			allowReaction: !offerType.needsVerification,
 		})
 	})
 
