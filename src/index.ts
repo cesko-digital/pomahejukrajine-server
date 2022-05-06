@@ -100,6 +100,7 @@ async function fetchDataFromContember() {
 		const offerType = data.offerTypes.find(it => it.id === offer.type.id)!
 		return ({
 			id: offer.id,
+			code: offer.code,
 			type: offer.type,
 			parameters: offer.parameters,
 			allowReaction: !offerType.needsVerification && offer.assignees.length === 0,
@@ -145,6 +146,7 @@ app.use(cors())
 
 type OfferResponse = {
 	id: string
+	code: string
 	type: {
 		id: string
 	}
@@ -169,6 +171,7 @@ type OffersResponse = OfferResponse[]
 
 type Offer = {
 	id: string
+	code: string
 	allowReaction: boolean
 	type: {
 		id: string
